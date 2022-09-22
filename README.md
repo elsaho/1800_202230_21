@@ -5,20 +5,16 @@
 * [Contents](#content)
 
 ## General Info
+**We are making a web application to help people get to school!**
 
-This browser based web application to ...
-**Help people get to school**
-* Hi my name is Mai!
-* Haurence needs to stop breaking things.
-* Hi, my name is Elsa! 
+* Haurence breaks things
+* Hi my name is Mai! She makes things usable!
+* Hi, my name is Elsa! She makes the project actually possible!
 
 	
 ## Technologies
 Technologies used for this project:
-* HTML, CSS
-* JavaScript
-* Bootstrap 
-* ...
+* Java in Eclipse IDE
 	
 ## Content
 Content of the project folder:
