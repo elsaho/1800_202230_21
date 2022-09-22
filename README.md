@@ -6,12 +6,11 @@
 
 ## General Info
 
-=======
 This browser based web application to ...
-* Help people get to school
-*Hi my name is Mai!
-Haurence needs to stop breaking things.
-
+**Help people get to school**
+* Hi my name is Mai!
+* Haurence needs to stop breaking things.
+* Hi, my name is Elsa! 
 	
 ## Technologies
 Technologies used for this project:
