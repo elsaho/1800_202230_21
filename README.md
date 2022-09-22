@@ -5,8 +5,9 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
-	
+* Haurence made this change hello.
+* Made another change
+
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
