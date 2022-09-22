@@ -5,16 +5,14 @@
 * [Contents](#content)
 
 ## General Info
-<<<<<<< HEAD
 
 =======
 This browser based web application to ...
 * Help people get to school
 *Hi my name is Mai!
-* Haurence made change. this should be a conflict.
+Haurence needs to stop breaking things.
 
 	
->>>>>>> b0463852f4a6d19da6f4f7d06de8e49819408d23
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
@@ -49,4 +47,3 @@ Firebase hosting files:
 Tips for file naming files and folders:
 * use lowercase with no spaces
 * use dashes (not underscore) for word separation
-
