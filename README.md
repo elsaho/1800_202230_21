@@ -8,7 +8,7 @@
 
 This browser based web application to ...
 * Hi, my name is Elsa! 
-*Hi my name is Mai!
+* Hi my name is Mai!
 * Haurence made change. this should be a conflict.
 
 	
