@@ -5,8 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-* Haurence made this change hello.
-* Made another change
+* Haurence made change. this should be a conflict.
 
 ## Technologies
 Technologies used for this project:
