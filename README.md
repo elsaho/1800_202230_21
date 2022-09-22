@@ -7,6 +7,7 @@
 ## General Info
 This browser based web application to ...
 * Help people get to school
+*Hi my name is Mai!
 	
 ## Technologies
 Technologies used for this project:
