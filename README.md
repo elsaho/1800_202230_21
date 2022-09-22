@@ -5,20 +5,20 @@
 * [Contents](#content)
 
 ## General Info
-<<<<<<< HEAD
 
-=======
 This browser based web application to ...
 <<<<<<< HEAD
 * Help people get to school
-* Hi my name is Mai!
 =======
 * Hi, my name is Elsa! 
+<<<<<<< HEAD
+=======
+* Hi my name is Mai!
+>>>>>>> 2dc27564777d03ce45256de7844f5b48f2eaa230
 * Haurence made change. this should be a conflict.
 
 >>>>>>> a61ba3c988f56b69af3f9999f2edd7b0e7fcd5bd
 	
->>>>>>> b0463852f4a6d19da6f4f7d06de8e49819408d23
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
