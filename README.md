@@ -5,26 +5,16 @@
 * [Contents](#content)
 
 ## General Info
+**We are making a web application to help people get to school!**
 
-This browser based web application to ...
-<<<<<<< HEAD
-* Help people get to school
-=======
-* Hi, my name is Elsa! 
-<<<<<<< HEAD
-=======
-* Hi my name is Mai!
->>>>>>> 2dc27564777d03ce45256de7844f5b48f2eaa230
-* Haurence made change. this should be a conflict.
+* Haurence breaks things
+* Hi my name is Mai! She makes things usable!
+* Hi, my name is Elsa! She makes the project actually possible!
 
->>>>>>> a61ba3c988f56b69af3f9999f2edd7b0e7fcd5bd
 	
 ## Technologies
 Technologies used for this project:
-* HTML, CSS
-* JavaScript
-* Bootstrap 
-* ...
+* Java in Eclipse IDE
 	
 ## Content
 Content of the project folder:
@@ -53,4 +43,3 @@ Firebase hosting files:
 Tips for file naming files and folders:
 * use lowercase with no spaces
 * use dashes (not underscore) for word separation
-
