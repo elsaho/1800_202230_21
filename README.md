@@ -7,14 +7,16 @@
 ## General Info
 **We are making a web application to help people get to school!**
 
-* Haurence breaks things
-* Hi my name is Mai! She makes things usable!
-* Hi, my name is Elsa! She makes the project actually possible!
+* Hullo, my name is Haurence. Haurence breaks things...
+* Hi my name is Mai! Mai makes things usable!
+* Hi, my name is Elsa! Elsa makes the project actually possible!
 
 	
 ## Technologies
 Technologies used for this project:
 * Java in Eclipse IDE
+* HTML
+* Bootstrap assets
 	
 ## Content
 Content of the project folder:
