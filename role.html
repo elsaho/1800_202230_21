@@ -16,6 +16,17 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
   <!-- Other libraries go here -->
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+
 
   <!-- Link to styles of your own -->
   <!-- <link rel="stylesheet" href="./styles/style.css"> -->
@@ -27,38 +38,8 @@
   <!------------------------------>
   <!-- Your HTML Layout go here -->
   <!------------nav------------------>
-  <!-- <nav id="navbarPlaceholder"></nav> -->
-  <nav class="navbar navbar-expand-{-sm|-md|-lg|-xl|-xxl} navbar-light bg-primary navbar justify-content-evenly">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <a class="navbar-brand" href="#">
-        <img src="/images/logo.jpg" height="36">
-        ConnectRide
-      </a>
-
-      <a class="navbar-brand" href="#">
-        <img src="/images/changeAddress.png" height="36">
-      </a>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Setting</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+  <nav id="navbarPlaceholder"></nav>
+  
   <div class="px-4 py-5 my-5 text-center">
     <img class="d-block mx-auto mb-4" src="/images/logo.jpg" alt="" width="150" height=auto>
     <h1 class="display-5 fw-bold">Today, you are a ... </h1>
@@ -93,8 +74,8 @@
   <!---------------------------------------------->
 
   <!-- Link to scripts of your own -->
-  <!-- <script src="/scripts/skeleton.js"></script> -->
-  <!-- <script src="./scripts/script.js"></script> -->
+  <script src="/scripts/skeleton.js"></script>
+
 
 </body>
 
