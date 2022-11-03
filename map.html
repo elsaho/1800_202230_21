@@ -28,8 +28,38 @@
 </head>
 
 <body>
-  <!-- nav -->
-  <nav id="navbarPlaceholder"></nav>
+
+  <!-- nav bar with link to role-->
+  <nav class="navbar navbar-expand-{-sm|-md|-lg|-xl|-xxl} navbar-light bg-primary navbar justify-content-evenly">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand" href="role.html">
+        <img src="/images/logo.jpg" height="36">
+        ConnectRide
+      </a>
+
+      <a class="navbar-brand" href="#">
+        <img src="/images/changeAddress.png" height="36">
+      </a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Setting</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <!-- Address form -->
   <form>
@@ -47,18 +77,25 @@
 
 <!-- Google map -->
 <div class="mapouter">
-  <div class="gmap_canvas"><iframe width=100% height=auto id="gmap_canvas"
+  <div class="gmap_canvas"><iframe width="1200" height="1000" id="gmap_canvas"
       src="https://maps.google.com/maps?q=bcit&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"
       marginheight="0" marginwidth="0"></iframe><a href="https://2piratebay.org"></a><br>
     <style>
       .mapouter {
-        position: relative;
+        position: absolute;
         text-align: right;
-        height: 500px;
-        width: 600px;
+        width: 100%;
+        height: auto;  
       }
-    </style><a href="https://www.embedgooglemap.net">google map link generator</a>
-    
+    </style><a href="https://www.embedgooglemap.net"></a>
+    <style>
+      .gmap_canvas {
+        overflow: hidden;
+        background: none !important;
+        width: 100%;
+        height: auto;      
+      }
+    </style>
   </div>
 </div>
 
