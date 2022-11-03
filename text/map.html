@@ -28,19 +28,27 @@
 </head>
 
 <body>
+  <!-- nav -->
   <nav id="navbarPlaceholder"></nav>
   
+  <!-- Address form -->
   <form>
     <fieldset>
       <legend>Address</legend>
-      <input class="form-control form-control-lg" type="text" placeholder="Your current address"
-        aria-label=".form-control-lg example">
       <input type="submit" id="submit" name="submit" value="Submit" />
       <input class="form-control form-control-sm" type="text" placeholder="Your destination address"
         aria-label=".form-control-sm example">
       <input type="submit" id="submit" name="submit" value="Submit" />
-
     </fieldset>
   </form>
+
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <script src="./scripts/firebaseAPI_CONNECTRIDE.js"></script>
+  <!---------------------------------------------->
+
+  <!-- Link to scripts of your own -->
+  <script src="/scripts/skeleton.js"></script>
+  <script src="./scripts/authentication.js"></script>
 
 </html>
