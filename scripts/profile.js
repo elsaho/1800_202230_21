@@ -62,6 +62,7 @@ function saveUserInfo() {
     })
     .then(() => {
       console.log("Document successfully updated!");
+      window.location.assign("role.html"); 
     })
 }
 
