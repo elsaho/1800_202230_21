@@ -6,13 +6,13 @@ function populateInfo() {
       if (user) {
   
         //go to the correct user document by referencing to the user uid
-        currentUser = db.collection("users").doc(user.uid)
+        currentUser = db.collection("rides").doc(user.uid)
         console.log(user.uid);
         //get the document for current user.
         currentUser.get()
-          .then(userDoc => {
+          .then(riderDoc => {
             //get the data fields of the user
-            var userRole = userDoc.data().Role;
+            var userRole = riderDoc.data().Role;
   
             //if the data fields are not empty, then write them in to the form.
             if (userRole != null) {
@@ -42,3 +42,5 @@ function saveUserInfo() {
         window.location.assign("role.html"); 
       })
   }
+
+document.getElementById('personalInfoFields').disabled = true;

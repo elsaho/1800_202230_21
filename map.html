@@ -67,10 +67,10 @@
       <legend>Address</legend>
       <input class="form-control form-control-lg" type="text" placeholder="Your current address"
         aria-label=".form-control-sm example">
-      <input type="submit" id="submit" name="submit" value="Submit" />
+      <input type="submit" id="currentAddressSubmit" name="submit" value="Submit" onclick="saveUserInfo()"/>
       <input class="form-control form-control-lg" type="text" placeholder="Your destination address"
         aria-label=".form-control-sm example">
-      <input type="submit" id="submit" name="submit" value="Submit" />
+      <input type="submit" id="destinationSubmit" name="submit" value="Submit" onclick="saveUserInfo()"/>
     </fieldset>
   </form>
 </body>
@@ -107,5 +107,6 @@
 <!-- Link to scripts of your own -->
 <script src="/scripts/skeleton.js"></script>
 <script src="/scripts/authentication.js"></script>
+<script src="/scripts/main.js"></script>
 
 </html>
