@@ -13,7 +13,7 @@ function addTripInfo() {
     var startLocation = document.getElementById("startLocation").value; //get the value of the field with id="nameInput"
     var endLocation = document.getElementById("endLocation").value; //get the value of the field with id="schoolInput"
     var depTime = document.getElementById("depTime").value; //get the value of the field with id="cityInput"
-    
+    var curStatus = document.querySelector('input[name="status"]:checked').value;
   
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -26,7 +26,7 @@ function addTripInfo() {
               start: startLocation,
               end: endLocation,
               DepartureTime: depTime,
-              
+              Status: curStatus
             }).then(() => {
               window.location.href = "mytrip.html"; //new line added
             })
