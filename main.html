@@ -3,7 +3,7 @@
 
 <head>
   <title>ConnectMap</title>
-  <meta name="map" content="My 1800 App">
+  <meta name="main" content="My 1800 App">
 
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -61,30 +61,8 @@
     </div>
   </nav>
 
-  <!-- Address form -->
-  <form>
-    <fieldset>
-      <legend>Trip</legend>
-      <input class="form-control form-control-lg" id="startLocation" type="text" placeholder="Your current address"
-        aria-label=".form-control-sm example"> <br>
-      <input class="form-control form-control-lg" id="endLocation" type="text" placeholder="Your destination address"
-        aria-label=".form-control-sm example"><br>
-        <input class="form-control form-control-lg" id="depTime" type="text" placeholder="Your time of departure"
-        aria-label=".form-control-sm example"><br>
-        <label>Availability: <span style="display:inline-block; width: 20pt;"></span></label>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="available" value="True" checked="">
-          <label>True</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="available" value="False">
-          <label>False</label>
-        </div><br>
-      <input type="submit" id="submit" name="submit" value="Submit" />
-    </fieldset>
-  </form>
-</body>
+  <!--Trip form -->
+  
 
 <!-- Google map -->
 <!-- <div class="mapouter">
@@ -116,8 +94,10 @@
 <!---------------------------------------------->
 
 <!-- Link to scripts of your own -->
+
+<!-- <script src="/scripts/authentication.js"></script> -->
 <script src="/scripts/skeleton.js"></script>
-<script src="/scripts/authentication.js"></script>
 <script src="/scripts/main.js"></script>
+<script src="/scripts/ride.js"></script>
 
 </html>
