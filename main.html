@@ -62,6 +62,22 @@
   </nav>
 
   <!--Trip form -->
+  <form>
+    <fieldset>
+      <legend>Trip</legend>
+      <input class="form-control form-control-lg" id="startLocation" type="text" placeholder="Your current address"
+        aria-label=".form-control-sm example"> <br>
+      <input class="form-control form-control-lg" id="endLocation" type="text" placeholder="Your destination address"
+        aria-label=".form-control-sm example"><br>
+        <input class="form-control form-control-lg" id="depTime" type="text" placeholder="Your time of departure"
+        aria-label=".form-control-sm example"><br>
+        <label>Status <span style="display:inline-block; width: 20pt;"></span></label>
+
+        <br>
+    </fieldset>
+    <button type="button" class="btn btn-info" onclick="addTripInfo()">Post</button>
+  </form>
+</body>
   
 
 <!-- Google map -->
