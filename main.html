@@ -64,19 +64,30 @@
   <!-- Address form -->
   <form>
     <fieldset>
-      <legend>Address</legend>
-      <input class="form-control form-control-lg" type="text" placeholder="Your current address"
-        aria-label=".form-control-sm example">
-      <input type="submit" id="submit" name="submit" value="Submit" />
-      <input class="form-control form-control-lg" type="text" placeholder="Your destination address"
-        aria-label=".form-control-sm example">
+      <legend>Trip</legend>
+      <input class="form-control form-control-lg" id="startLocation" type="text" placeholder="Your current address"
+        aria-label=".form-control-sm example"> <br>
+      <input class="form-control form-control-lg" id="endLocation" type="text" placeholder="Your destination address"
+        aria-label=".form-control-sm example"><br>
+        <input class="form-control form-control-lg" id="depTime" type="text" placeholder="Your time of departure"
+        aria-label=".form-control-sm example"><br>
+        <label>Availability: <span style="display:inline-block; width: 20pt;"></span></label>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="available" value="True" checked="">
+          <label>True</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="available" value="False">
+          <label>False</label>
+        </div><br>
       <input type="submit" id="submit" name="submit" value="Submit" />
     </fieldset>
   </form>
 </body>
 
 <!-- Google map -->
-<div class="mapouter">
+<!-- <div class="mapouter">
   <div class="gmap_canvas"><iframe width="1200" height="1000" id="gmap_canvas"
       src="https://maps.google.com/maps?q=bcit&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"
       marginheight="0" marginwidth="0"></iframe><a href="https://2piratebay.org"></a><br>
@@ -97,7 +108,7 @@
       }
     </style>
   </div>
-</div>
+</div> -->
 
 <!---------------------------------------------->
 <!-- Your own JavaScript functions go here    -->
