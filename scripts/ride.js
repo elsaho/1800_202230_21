@@ -27,7 +27,8 @@ function addTripInfo() {
               end: endLocation,
               DepartureTime: depTime,
               Status: curStatus,
-              userID: userID
+              userID: userID,
+              timestamp: firebase.firestore.FieldValue.serverTimestamp()
             }).then(() => {
               window.location.href = "mytrip.html"; //new line added
             })
