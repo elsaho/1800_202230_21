@@ -14,7 +14,7 @@
 	
 ## Technologies
 Technologies used for this project:
-* Java in Eclipse IDE
+* JavaScript
 * HTML
 * Bootstrap assets
 	
@@ -24,17 +24,18 @@ Content of the project folder:
 ```
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
+├── login.html               # log in landing page
+├── main.html                # main page
+├── mytrip.html              # shows users trips history
+├── nav.html                 # nav bar item
+├── profile.html             # user profile page.
 └── README.md
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                # 
 ├── scripts                  # Folder for scripts
-    /blah.js                 # 
 ├── styles                   # Folder for styles
-    /blah.css                # 
 
 Firebase hosting files: 
 ├── .firebaserc...
