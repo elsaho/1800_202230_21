@@ -1,4 +1,5 @@
 var currentUser
+var role = localStorage.getItem('role');
 
 function insertName() {
     // to check if the user is logged in:
@@ -42,6 +43,7 @@ function addTripInfo() {
               DepartureTime: depTime,
               Status: curStatus,
               userID: userID,
+              role: role,
               timestamp: firebase.firestore.FieldValue.serverTimestamp()
             }).then(() => {
               window.location.href = "trip.html"; //new line added

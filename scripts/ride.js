@@ -1,3 +1,4 @@
+var role = localStorage.getItem('role');
 
 function populateRidesInfo() {
   let rideCardTemp = document.getElementById("rideCardTemp");
@@ -15,6 +16,11 @@ function populateRidesInfo() {
         rideCard.querySelector('.end').innerHTML = "To: " +endLocation;
         rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
         rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
+        if (role === 'Passenger') {
+          rideCard.querySelector('.curStatus').innerHTML = "I'm a passenger, I'm looking for a ride."
+        } else if (role === 'Driver') {
+          rideCard.querySelector('.curStatus').innerHTML = "I'm a driver, I'm offering a ride."
+        }
         rideCardGroup.appendChild(rideCard);
       })
     })
