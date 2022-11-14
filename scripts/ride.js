@@ -16,7 +16,7 @@ function populateRidesInfo() {
           rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
           rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
           rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
-          rideCard.querySelector('.curStatus').innerHTML = "I'm a driver, I'm offering a ride."
+          rideCard.querySelector('.role').innerHTML = "I'm a driver, I'm offering a ride."
           rideCardGroup.appendChild(rideCard);
         })
       })
@@ -33,7 +33,7 @@ function populateRidesInfo() {
           rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
           rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
           rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
-          rideCard.querySelector('.curStatus').innerHTML = "I'm a passenger, I'm looking for a ride."        
+          rideCard.querySelector('.role').innerHTML = "I'm a passenger, I'm looking for a ride."        
           rideCardGroup.appendChild(rideCard);
         })
       })
