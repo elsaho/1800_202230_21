@@ -31,41 +31,13 @@
 <body>
 
   <!-- nav bar with link to role-->
-  <nav class="navbar navbar-expand-{-sm|-md|-lg|-xl|-xxl} navbar-light bg-primary navbar justify-content-evenly">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <a class="navbar-brand" href="role.html">
-        <img src="/images/logo.jpg" height="36">
-        ConnectRide
-      </a>
-
-      <a class="navbar-brand" href="#">
-        <img src="/images/changeAddress.png" height="36">
-      </a>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Setting</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <nav id="navbarPlaceholder"></nav>
 
   <!--Trip form -->
+  <div class="container">
   <form>
     <fieldset>
-      <h1>Trip</h1>
+      <h1>My Trip</h1>
       <input class="form-control form-control-lg" id="startLocation" type="text" placeholder="Your current address"
         aria-label=".form-control-sm example"> <br>
       <input class="form-control form-control-lg" id="endLocation" type="text" placeholder="Your destination address"
@@ -86,6 +58,7 @@
     </fieldset>
     <button type="button" class="btn btn-info" onclick="addTripInfo()">Post</button>
   </form>
+</div>
 </body>
   
 
@@ -123,6 +96,7 @@
 <!-- <script src="/scripts/authentication.js"></script>  do not uncomment this unless necessary, it messes up storing data -->
 <script src="/scripts/skeleton.js"></script>
 <script src="/scripts/main.js"></script>
-<script src="/scripts/ride.js"></script>
+<!-- <script src="/scripts/ride.js"></script> -->
+<script src="./scripts/profile.js"></script>
 
 </html>

@@ -1,5 +1,6 @@
 var currentUser //put this right after you start script tag before writing any functions.
 
+
 function populateInfo() {
   firebase.auth().onAuthStateChanged(user => {
     // Check if user is signed in:
@@ -8,7 +9,9 @@ function populateInfo() {
       //go to the correct user document by referencing to the user uid
       currentUser = db.collection("users").doc(user.uid)
       console.log(user.uid);
+     
       //get the document for current user.
+
       currentUser.get()
         .then(userDoc => {
           //get the data fields of the user
@@ -28,7 +31,7 @@ function populateInfo() {
             document.getElementById("cityInput").value = userCity;
           }
           if (userGender != null) {
-            document.querySelector('input[name="Gender"]:checked').value;
+            document.querySelector('input[name="Gender"]:checked').value = userGender;
           }
         })
     } else {
@@ -62,8 +65,9 @@ function saveUserInfo() {
     })
     .then(() => {
       console.log("Document successfully updated!");
-      window.location.assign("role.html"); 
+      window.location.assign("role.html");
     })
 }
-
 document.getElementById('personalInfoFields').disabled = true;
+
+
