@@ -33,17 +33,24 @@ function addTripInfo() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var currentUser = db.collection("users").doc(user.uid)
+            // currentUser.get()
+            //     .then(userDoc => {
+            //         //get the data fields of the user
+            //         var userEmail = userDoc.data().email;
+            //     })
             var userID = user.uid;
             //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
+                    var userEmail = userDoc.data().email;
                     if (role === "Passenger") {
                         db.collection("rides").doc("AllPassengerRides").collection("PassengerRides").add({
                             start: startLocation,
                             end: endLocation,
                             DepartureTime: depTime,
                             Status: curStatus,
-                            userID: userID,
+                            userID: userDoc.data().email,
+                            userEmail: userEmail,
                             role: role,
                             timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         }).then(() => {
@@ -56,6 +63,7 @@ function addTripInfo() {
                             DepartureTime: depTime,
                             Status: curStatus,
                             userID: userID,
+                            userEmail: userEmail,
                             role: role,
                             timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         }).then(() => {
