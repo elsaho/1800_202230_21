@@ -4,7 +4,7 @@ function populateRidesInfo() {
   let rideCardTemp = document.getElementById("rideCardTemp");
   let rideCardGroup = document.getElementById("rideCardGroup");
   if (role === "Passenger") {
-    db.collection("rides").doc("AllDriverRides").collection("DrivererRides").get()
+    db.collection("rides").doc("AllDriverRides").collection("DriverRides").get()
       .then(allRides => {
         allRides.forEach(doc => {
           var startLocation = doc.data().start;

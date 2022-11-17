@@ -49,7 +49,7 @@ function addTripInfo() {
                             end: endLocation,
                             DepartureTime: depTime,
                             Status: curStatus,
-                            userID: userDoc.data().email,
+                            userID: userID,
                             userEmail: userEmail,
                             role: role,
                             timestamp: firebase.firestore.FieldValue.serverTimestamp()
@@ -57,7 +57,7 @@ function addTripInfo() {
                             window.location.href = "trip.html"; //new line added
                         })
                     } else if (role === "Driver") {
-                        db.collection("rides").doc("AllDriverRides").collection("DrivererRides").add({
+                        db.collection("rides").doc("AllDriverRides").collection("DriverRides").add({
                             start: startLocation,
                             end: endLocation,
                             DepartureTime: depTime,
