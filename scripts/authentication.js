@@ -21,7 +21,6 @@ var uiConfig = {
                     name: user.displayName,                    //"users" collection
                     email: user.email,                         //with authenticated user's ID (user.uid)
                     country: "Canada",                      //optional default profile info      
-                    school: "BCIT"                        //optional default profile info
                 }).then(function () {
                     console.log("New user added to firestore");
                     window.location.assign("profile.html");       //re-direct to gender.html after signup
@@ -42,7 +41,7 @@ var uiConfig = {
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
-    signInSuccessUrl: "role.html",
+    signInSuccessUrl: "trip.html",
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
       //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
