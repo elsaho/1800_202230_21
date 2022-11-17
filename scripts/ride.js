@@ -18,13 +18,7 @@ function populateRidesInfo() {
           rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
           rideCard.querySelector('.email').innerHTML = "Contact information " + email;
           rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
-          rideCard.querySelector('.role').innerHTML = "I'm a driver, I'm offering a ride."
-          
-          //in progress:
-          //rideCard.querySelector('i').id = 'save-' + rideID;             
-          //rideCard.querySelector('i').onclick = () => saveRide(rideID);
-          //
-          
+          rideCard.querySelector('.role').innerHTML = "I'm a driver, I'm offering a ride."          
           rideCardGroup.appendChild(rideCard);
         })
       })
