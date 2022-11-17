@@ -21,7 +21,7 @@ function populateRidesInfo() {
         rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
         rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
         rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
-        rideCard.querySelector('.role').innerHTML = "I'm a driver, I'm offering a ride."
+        rideCard.querySelector('.role').innerHTML = "I am a : " + role;
         rideCardGroup.appendChild(rideCard);
       })
     })
