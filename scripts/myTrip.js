@@ -72,3 +72,7 @@ function showTripHistory(currentUserID) {
     //Also add same thing for passenger postings
 })})}
 
+function changeStatus() {
+    console.log("availability changed");
+}
+

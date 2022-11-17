@@ -9,7 +9,7 @@ function populateInfo() {
       //go to the correct user document by referencing to the user uid
       currentUser = db.collection("users").doc(user.uid)
       console.log(user.uid);
-     
+
       //get the document for current user.
 
       currentUser.get()
@@ -31,8 +31,21 @@ function populateInfo() {
             document.getElementById("cityInput").value = userCity;
           }
           if (userGender != null) {
-            document.querySelector('input[name="Gender"]:checked').value = userGender;
+            if (userGender == "Female") {
+              var radio = document.querySelector('Female');
+              $('.Female').prop('checked', true);
+            }
+            if (userGender == "Male") {
+              var radio = document.querySelector('Female');
+              $('.Male').prop('checked', true);
+            }
+            if (userGender == "Other") {
+              var radio = document.querySelector('Female');
+              $('.Other').prop('checked', true);
+            }
           }
+          // document.querySelector('form-check').value = userGender;
+
         })
     } else {
       // No user is signed in.
@@ -69,5 +82,3 @@ function saveUserInfo() {
     })
 }
 document.getElementById('personalInfoFields').disabled = true;
-
-
