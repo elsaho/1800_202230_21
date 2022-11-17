@@ -5,9 +5,9 @@ firebase.auth().onAuthStateChanged(user => {
     if (user) {
         currentUser = db.collection("users").doc(user.uid);   //global
         console.log(currentUser);
-
         // the following functions are always called when someone is logged in
         insertName();
+        showTripHistory(user.uid);
     } else {
         // No user is signed in.
         console.log("No user is signed in");
@@ -20,17 +20,17 @@ function insertName() {
         //get the user name
         var user_Name = userDoc.data().name;
         console.log(user_Name);
+
         $("#name-goes-here").text(user_Name); //jquery
     })
 }
 
-function updateTripHistory() {
+function showTripHistory(currentUserID) {
     let rideCardTemp = document.getElementById("rideCardTemp");
     let rideCardGroup = document.getElementById("rideCardGroup");
 
       db.collection("rides").doc("AllDriverRides").collection("DriverRides")
-        //.where("userID", "==", userDoc.uid) 
-        //Want to filter so that it only displays rides from THIS user but not working rn
+        .where("userID", "==", currentUserID) 
         .get()
         .then(allRides => {
           allRides.forEach(doc => {
@@ -53,4 +53,3 @@ function updateTripHistory() {
     //Also add same thing for passenger postings
 }
 
-updateTripHistory();
