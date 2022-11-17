@@ -45,8 +45,8 @@ function addTripInfo() {
                     var userEmail = userDoc.data().email;
                     var userName = userDoc.data().name;
                     var userGender = userDoc.data().gender;
-                    if (role === "Passenger") {
-                        db.collection("rides").doc("AllPassengerRides").collection("PassengerRides").add({
+                    // if (role === "Passenger") {
+                        db.collection("rides").add({
                             start: startLocation,
                             end: endLocation,
                             DepartureTime: depTime,
@@ -60,22 +60,22 @@ function addTripInfo() {
                         }).then(() => {
                             window.location.href = "trip.html"; //new line added
                         })
-                    } else if (role === "Driver") {
-                        db.collection("rides").doc("AllDriverRides").collection("DriverRides").add({
-                            start: startLocation,
-                            end: endLocation,
-                            DepartureTime: depTime,
-                            Status: curStatus,
-                            userID: userID,
-                            userEmail: userEmail,
-                            userName: userName,
-                            userGender: userGender,
-                            role: role,
-                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                        }).then(() => {
-                            window.location.href = "trip.html"; //new line added
-                        })
-                    }
+                    // } else if (role === "Driver") {
+                    //     db.collection("rides").doc("AllDriverRides").collection("DriverRides").add({
+                    //         start: startLocation,
+                    //         end: endLocation,
+                    //         DepartureTime: depTime,
+                    //         Status: curStatus,
+                    //         userID: userID,
+                    //         userEmail: userEmail,
+                    //         userName: userName,
+                    //         userGender: userGender,
+                    //         role: role,
+                    //         timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    //     }).then(() => {
+                    //         window.location.href = "trip.html"; //new line added
+                    //     })
+                    // }
 
                 })
 
