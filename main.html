@@ -37,11 +37,20 @@
   <div class="container">
     <form>
       <fieldset>
-        <h1>My Trip</h1>
-        <input class="form-control form-control-lg" id="startLocation" type="text" placeholder="Your current address"
+        <h1>Post My Trip!</h1>
+        <input class="form-control form-control" id="startLocation" type="text" placeholder="Your current address"
           aria-label=".form-control-sm example"> <br>
-        <input class="form-control form-control-lg" id="endLocation" type="text" placeholder="Your destination address"
-          aria-label=".form-control-sm example"><br>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Select your area</option>
+          <option value="vancouver">Vancouver</option>
+          <option value="burnaby">Burnaby</option>
+          <option value="richmond">Richmond</option>
+          <option value="newWest">New Westminster</option>
+          <option value="portMoody">Port Moody</option>
+          <option value="coquitlam">Coquitlam</option>
+        </select> <br>
+        <input class="form-control form-control-lg" id="endLocation" type="text"
+          placeholder="Your destination address" aria-label=".form-control-sm example"><br>
         <input class="form-control form-control-lg" id="depTime" type="datetime-local"
           placeholder="Your date and time of departure" aria-label=".form-control-sm example"><br>
         <label>Status <span style="display:inline-block; width: 20pt;"></span></label>
