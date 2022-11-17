@@ -43,6 +43,8 @@ function addTripInfo() {
             currentUser.get()
                 .then(userDoc => {
                     var userEmail = userDoc.data().email;
+                    var userName = userDoc.data().name;
+                    var userGender = userDoc.data().gender;
                     if (role === "Passenger") {
                         db.collection("rides").doc("AllPassengerRides").collection("PassengerRides").add({
                             start: startLocation,
@@ -51,6 +53,8 @@ function addTripInfo() {
                             Status: curStatus,
                             userID: userID,
                             userEmail: userEmail,
+                            userName: userName,
+                            userGender: userGender,
                             role: role,
                             timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         }).then(() => {
@@ -64,6 +68,8 @@ function addTripInfo() {
                             Status: curStatus,
                             userID: userID,
                             userEmail: userEmail,
+                            userName: userName,
+                            userGender: userGender,
                             role: role,
                             timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         }).then(() => {
