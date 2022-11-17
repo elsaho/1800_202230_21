@@ -26,9 +26,11 @@ Content of the project folder:
 ├── .gitignore               # Git ignore file
 ├── login.html               # log in landing page
 ├── main.html                # main page
-├── mytrip.html              # shows users trips history
+├── myTrip.html              # shows users trips history
 ├── nav.html                 # nav bar item
 ├── profile.html             # user profile page.
+├── role.html                # user select roles.
+├── trip.html                # display and save trips.
 └── README.md
 
 It has the following subfolders and files:
