@@ -26,7 +26,7 @@ function populateRidesInfo() {
         rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
         rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
         rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
-        rideCard.querySelector('.role').innerHTML = "I am a : " + role;
+        rideCard.querySelector('.role').innerHTML = "I am a : Passenger";
         rideCardGroup.appendChild(rideCard);
       })
     })
@@ -50,7 +50,7 @@ function populateRidesInfo() {
       rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
       rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
       rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
-      rideCard.querySelector('.role').innerHTML = "I am a : " + role;
+      rideCard.querySelector('.role').innerHTML = "I am a : Driver";
       rideCardGroup.appendChild(rideCard);
     })
   })
