@@ -25,50 +25,73 @@ function insertName() {
     })
 }
 
-function showTripHistory(currentUserID) {
+function showTripHistory(currentUser) {
     let rideCardTemp = document.getElementById("rideCardTemp");
     let rideCardGroup = document.getElementById("rideCardGroup");
-
-    db.collection("rides")
-        .where("userID", "==", currentUserID)
-        .get()
-        .then(allRides => {
-            allRides.forEach(doc => {
-                var startLocation = doc.data().start;
-                var endLocation = doc.data().end;
-                var depTime = doc.data().DepartureTime;
-                var curStatus = doc.data().Status;
-                var email = doc.data().userEmail;
-                let rideCard = rideCardTemp.content.cloneNode(true);
-                rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
-                rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
-                rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
-                rideCard.querySelector('.email').innerHTML = "Contact information " + email;
-                rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
-                rideCard.querySelector('.role').innerHTML = "I'm a driver, I'm offering a ride."
-                rideCardGroup.appendChild(rideCard);
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            db.collection("rides")
+            .where("userID", "==", currentUser)
+            .get()
+            .then(allRides => {
+                allRides.forEach(doc => {
+                    var startLocation = doc.data().start;
+                    var endLocation = doc.data().end;
+                    var depTime = doc.data().DepartureTime;
+                    var curStatus = doc.data().Status;
+                    var email = doc.data().userEmail;
+                    let rideCard = rideCardTemp.content.cloneNode(true);
+                    if (startLocation != null) {
+                        rideCard.querySelector('.start').value = startLocation;
+                      }
+                    if (endLocation != null) {
+                        rideCard.querySelector('.end').value = endLocation;
+                      }
+                      if (depTime != null) {
+                        rideCard.querySelector('.depTime').value = endLocation;
+                      }
+                      if (curStatus != null) {
+                        if (curStatus == "Available") {
+                            $('.Available').prop('checked', true);
+                        } else {                     
+                            $('.NotAvailable').prop('checked', true);
+                        }
+                      }
+                    //   if (curStatus != null) {
+                    // }
+                    rideCardGroup.appendChild(rideCard);
+                })
             })
-        })
+              
+        } else {
+          // No user is signed in.
+          console.log("No user is signed in");
+        }
+      });
 }
+showTripHistory(currentUser);
 
-// function changeStatus() {
-//     console.log("availability changed");
-//     if (role == "Passenger") {
-//         var curRideID = db.collection("rides").doc("AllDriverRides").collection("DriverRides");
-//     } else {
-//         var curRideID = db.collection("rides").doc("AllPassengerRides").collection("PassengerRides");
-//     }   
-//     var curStatus;
-    
-
-            // if (curStatus.Status == "Available") {
-            //     doc.update({
-            //         Status: "Not Available"
-            //     })
-            // } else {
-            //     doc.update({
-            //         Status: "Available"
-            //     })
-            // }
-            // rideCard.querySelector('.curStatus').innerHTML = "Status: " + stat;
-// }
+function editRideInfo() {
+    //Enable the form fields
+    document.getElementById('rideCardTemp').disabled = false;
+  }
+  function saveRideInfo() {
+    console.log("inside save ride info");
+  
+    // userName = document.getElementById('nameInput').value; //get the value of the field with id="nameInput"
+    // userSchool = document.getElementById('schoolInput').value; //get the value of the field with id="schoolInput"
+    // userCity = document.getElementById('cityInput').value; //get the value of the field with id="cityInput"
+    // userGender = document.querySelector('input[name="Gender"]:checked').value;
+  
+    // currentUser.update({
+    //     name: userName,
+    //     school: userSchool,
+    //     city: userCity,
+    //     gender: userGender
+    //   })
+    //   .then(() => {
+    //     console.log("Document successfully updated!");
+    //     window.location.assign("role.html");
+    //   })
+  }
+  document.getElementById('rideCardGroup').disabled = true;

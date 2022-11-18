@@ -32,15 +32,12 @@ function populateInfo() {
           }
           if (userGender != null) {
             if (userGender == "Female") {
-              var radio = document.querySelector('Female');
               $('.Female').prop('checked', true);
             }
             if (userGender == "Male") {
-              var radio = document.querySelector('Female');
               $('.Male').prop('checked', true);
             }
             if (userGender == "Other") {
-              var radio = document.querySelector('Female');
               $('.Other').prop('checked', true);
             }
           }
