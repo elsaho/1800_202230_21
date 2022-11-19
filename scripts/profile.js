@@ -75,7 +75,7 @@ function saveUserInfo() {
     })
     .then(() => {
       console.log("Document successfully updated!");
-      window.location.assign("role.html");
+      window.location.assign("trip.html");
     })
 }
 document.getElementById('personalInfoFields').disabled = true;
