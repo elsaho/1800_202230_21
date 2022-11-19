@@ -1,5 +1,6 @@
 var currentUser
 var role = localStorage.getItem('role');
+var rideID;
 
 function insertName() {
     // to check if the user is logged in:
@@ -45,7 +46,7 @@ function addTripInfo() {
                     var userEmail = userDoc.data().email;
                     var userName = userDoc.data().name;
                     var userGender = userDoc.data().gender;
-                    var rideID = db.collection("rides").doc().id;
+                    rideID = db.collection("rides").doc().id;
                    
 
 
