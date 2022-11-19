@@ -29,7 +29,7 @@ function addTripInfo() {
     var endLocation = document.getElementById("endLocation").value; //get the value of the field with id="schoolInput"
     var depTime = document.getElementById("depTime").value; //get the value of the field with id="cityInput"
     var curStatus = document.querySelector('input[name="status"]:checked').value;
-
+    var rideID;
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var currentUser = db.collection("users").doc(user.uid)
@@ -45,8 +45,8 @@ function addTripInfo() {
                     var userEmail = userDoc.data().email;
                     var userName = userDoc.data().name;
                     var userGender = userDoc.data().gender;
-                    // if (role === "Passenger") {
-                    db.collection("rides").add({
+
+                    var ride = {
                         start: startLocation,
                         end: endLocation,
                         DepartureTime: depTime,
@@ -57,9 +57,17 @@ function addTripInfo() {
                         userGender: userGender,
                         role: role,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    }).then(() => {
+                    };
+                   
+                    db.collection("rides").add(ride
+                    ).then(() => {              
                         window.location.href = "trip.html"; //new line added
+                        rideID = doc(uid);
                     })
+                    // currentUser.collection("myRides").add(ride
+                    //     ).then(() => {              
+                    //         console.log("added ride to users collection");
+                    //     })
 
                 })
 

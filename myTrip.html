@@ -33,6 +33,24 @@
   <!-- nav bar with link to role-->
   <nav id="navbarPlaceholder"></nav>
 
+  <template id="rideCardTemp">
+    <div class="card border-dark mb-3" style="padding: 10px;">
+      <p class="start "></p>
+      <p class="end"></p>
+      <p class="depTime"></p>
+      <p class="email"></p>
+      <p class="curStatus"></p>
+      <p class="role"></p><br>
+      <button type="button" class="btn btn-info" onclick="deletePost()">Delete</button>
+    </div>
+  </template>
+  <div class="container">
+    <h1><span id="name-goes-here"></span>'s Trip History</h1>
+    <div class="container">
+      <div id = "rideCardGroup"></div>
+    </div>
+  </div>
+<!-- 
   <template id="rideCardTemp" disabled>
     <div class="card border-dark mb-3" style="padding: 10px;" >
       <input class="form-control form-control start" id="startLocation" type="text" placeholder="Your current address"
@@ -49,7 +67,7 @@
       <input class="form-control form-control end" id="endLocation" type="text" placeholder="Your destination address"
         aria-label=".form-control-sm example"><br>
       <input class="form-control form-control depTime" id="depTime" type="datetime-local"
-        placeholder="Your date and time of departure" aria-label=".form-control-sm example"><br>
+        placeholder="Your date and time of departure" aria-label=".form-control-sm example"><br> -->
       <!-- <label>Status <span style="display:inline-block; width: 20pt;"></span></label> -->
 
       <!-- <div class="form-check form-check-inline curStatus">
@@ -60,7 +78,7 @@
         <input class="form-check-input NotAvailable" type="radio" name="status" value="Not Available">
         <label>Not Available</label>
       </div> -->
-      <div class="d-flex justify-content-end mt-5">
+      <!-- <div class="d-flex justify-content-end mt-5">
         <button type="button" class="btn btn-secondary" onclick="editRideInfo()">Edit</button>
         <span style="width: 10px"></span>
         <button type="button" class="btn btn-info" onclick="saveRideInfo()">Save</button>
@@ -72,7 +90,7 @@
     <div class="container">
       <div id="rideCardGroup"></div>
     </div>
-  </div>
+  </div> -->
 
 </body>
 
