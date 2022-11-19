@@ -1,5 +1,6 @@
 var currentUser
 var role = localStorage.getItem('role');
+var rideID;
 
 function insertName() {
     // to check if the user is logged in:
@@ -29,7 +30,7 @@ function addTripInfo() {
     var endLocation = document.getElementById("endLocation").value; //get the value of the field with id="schoolInput"
     var depTime = document.getElementById("depTime").value; //get the value of the field with id="cityInput"
     var curStatus = document.querySelector('input[name="status"]:checked').value;
-
+    var rideID;
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var currentUser = db.collection("users").doc(user.uid)
@@ -45,8 +46,11 @@ function addTripInfo() {
                     var userEmail = userDoc.data().email;
                     var userName = userDoc.data().name;
                     var userGender = userDoc.data().gender;
-                    // if (role === "Passenger") {
-                    db.collection("rides").add({
+                    rideID = db.collection("rides").doc().id;
+                   
+
+
+                    db.collection("rides").doc(rideID).set({
                         start: startLocation,
                         end: endLocation,
                         DepartureTime: depTime,
@@ -56,10 +60,18 @@ function addTripInfo() {
                         userName: userName,
                         userGender: userGender,
                         role: role,
+                        rideID: rideID,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    }).then(() => {
-                        window.location.href = "trip.html"; //new line added
+                    }).then(() => {           
+                        console.log(rideID);   
+                        window.location.href = "trip.html"; //new line added     
+                      
                     })
+                    
+                    // currentUser.collection("myRides").add(ride
+                    //     ).then(() => {              
+                    //         console.log("added ride to users collection");
+                    //     })
 
                 })
 
