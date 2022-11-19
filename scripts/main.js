@@ -46,7 +46,20 @@ function addTripInfo() {
                     var userName = userDoc.data().name;
                     var userGender = userDoc.data().gender;
 
-                    var ride = {
+                    // var ride = {
+                    //     start: startLocation,
+                    //     end: endLocation,
+                    //     DepartureTime: depTime,
+                    //     Status: curStatus,
+                    //     userID: userID,
+                    //     userEmail: userEmail,
+                    //     userName: userName,
+                    //     userGender: userGender,
+                    //     role: role,
+                    //     timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    // };
+                   
+                    db.collection("rides").add({
                         start: startLocation,
                         end: endLocation,
                         DepartureTime: depTime,
@@ -57,13 +70,11 @@ function addTripInfo() {
                         userGender: userGender,
                         role: role,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    };
-                   
-                    db.collection("rides").add(ride
-                    ).then(() => {              
-                        window.location.href = "trip.html"; //new line added
-                        rideID = doc(uid);
+                    }).then(() => {              
+                        window.location.href = "trip.html"; //new line added     
+                      
                     })
+                    
                     // currentUser.collection("myRides").add(ride
                     //     ).then(() => {              
                     //         console.log("added ride to users collection");

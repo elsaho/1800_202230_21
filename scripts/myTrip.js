@@ -1,5 +1,8 @@
 var currentUser;
 var role = localStorage.getItem('role');
+var currentRide;
+
+
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
@@ -53,4 +56,15 @@ function showTripHistory(currentUser) {
         })
     }
   })
+}
+
+function deletePost() {
+  db.collection("rides").doc().delete().then(() => {
+    window.location.reload();
+    console.log("Document successfully deleted!");
+}).catch((error) => {
+    console.error("Error removing document: ", error);
+    window.location.reload()
+});
+
 }
