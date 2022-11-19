@@ -45,21 +45,11 @@ function addTripInfo() {
                     var userEmail = userDoc.data().email;
                     var userName = userDoc.data().name;
                     var userGender = userDoc.data().gender;
-
-                    // var ride = {
-                    //     start: startLocation,
-                    //     end: endLocation,
-                    //     DepartureTime: depTime,
-                    //     Status: curStatus,
-                    //     userID: userID,
-                    //     userEmail: userEmail,
-                    //     userName: userName,
-                    //     userGender: userGender,
-                    //     role: role,
-                    //     timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    // };
+                    var rideID = db.collection("rides").doc().id;
                    
-                    db.collection("rides").add({
+
+
+                    db.collection("rides").doc(rideID).set({
                         start: startLocation,
                         end: endLocation,
                         DepartureTime: depTime,
@@ -69,8 +59,10 @@ function addTripInfo() {
                         userName: userName,
                         userGender: userGender,
                         role: role,
+                        rideID: rideID,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    }).then(() => {              
+                    }).then(() => {           
+                        console.log(rideID);   
                         window.location.href = "trip.html"; //new line added     
                       
                     })

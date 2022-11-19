@@ -1,6 +1,6 @@
 var currentUser;
 var role = localStorage.getItem('role');
-var currentRide;
+var rideID;
 
 
 
@@ -44,6 +44,7 @@ function showTripHistory(currentUser) {
             var curStatus = doc.data().Status;
             var email = doc.data().userEmail;
             var rideRole = doc.data().role;
+            rideID = doc.data().rideID;
             let rideCard = rideCardTemp.content.cloneNode(true);
             rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
             rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
@@ -59,12 +60,12 @@ function showTripHistory(currentUser) {
 }
 
 function deletePost() {
-  db.collection("rides").doc().delete().then(() => {
-    window.location.reload();
+
+  db.collection("rides").doc(rideID).delete().then(() => {
     console.log("Document successfully deleted!");
 }).catch((error) => {
     console.error("Error removing document: ", error);
-    window.location.reload()
 });
-
+window.location.reload ();
+    
 }
