@@ -41,7 +41,8 @@ function showTripHistory(currentUser) {
             var startLocation = doc.data().start;
             var endLocation = doc.data().end;
             var depTime = doc.data().DepartureTime;
-            var curStatus = doc.data().Status;
+            var userName = doc.data().userName;
+            // var curStatus = doc.data().Status;
             var email = doc.data().userEmail;
             var rideRole = doc.data().role;
             rideID = doc.data().rideID;
@@ -49,8 +50,8 @@ function showTripHistory(currentUser) {
             rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
             rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
             rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
-            rideCard.querySelector('.email').innerHTML = "Contact information " + email;
-            rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
+            rideCard.querySelector('.email').innerHTML = "Contact information: " + userName + ", "+ email;
+            // rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
             rideCard.querySelector('.role').innerHTML = "As a: " + rideRole;
             rideCardGroup.appendChild(rideCard);
           })
@@ -58,6 +59,7 @@ function showTripHistory(currentUser) {
     }
   })
 }
+
 
 function deletePost() {
   console.log(rideID);
