@@ -8,7 +8,7 @@ firebase.auth().onAuthStateChanged(user => {
     console.log(currentUser);
     // the following functions are always called when someone is logged in
     insertName();
-    showTripHistory(user.uid);
+    populateRidesInfo();
   } else {
     // No user is signed in.
     console.log("No user is signed in");
@@ -16,28 +16,15 @@ firebase.auth().onAuthStateChanged(user => {
   }
 });
 
-function insertName() {
-  currentUser.get().then(userDoc => {
-    //get the user name
-    var user_Name = userDoc.data().name;
-    console.log(user_Name);
+// function insertName() {
+//   currentUser.get().then(userDoc => {
+//     //get the user name
+//     var user_Name = userDoc.data().name;
+//     console.log(user_Name);
 
-    $("#name-goes-here").text(user_Name); //jquery
-  })
-}
-
-function saveBookmark(rideID) {
-  currentUser.set({
-          bookmarks: firebase.firestore.FieldValue.arrayUnion(rideID)
-      }, {
-          merge: true
-      })
-      .then(function () {
-          console.log("bookmark has been saved for: " + currentUser);
-          var iconID = 'save-' + rideID;
-          document.getElementById(iconID).innerText = 'bookmark';
-      });
-}
+//     $("#name-goes-here").text(user_Name); //jquery
+//   })
+// }
 
 function populateRidesInfo() {
   let rideCardTemp = document.getElementById("rideCardTemp");
@@ -60,6 +47,7 @@ function populateRidesInfo() {
         var userGender = doc.data().userGender;
         rideID = doc.data().rideID;
         let rideCard = rideCardTemp.content.cloneNode(true);
+
         // rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
         rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
         rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
@@ -104,6 +92,7 @@ function populateRidesInfo() {
       rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
       rideCard.querySelector('.role').innerHTML = "I am a : Driver";
 
+      console.log(rideID);
       //bookmark
       currentUser.get().then(userDoc => {
         var bookmarks = userDoc.data().bookmarks;
@@ -119,7 +108,19 @@ function populateRidesInfo() {
   })
 }}
 
-populateRidesInfo();
+function saveBookmark(rideID) {
+  currentUser.set({
+          bookmarks: firebase.firestore.FieldValue.arrayUnion(rideID)
+      }, {
+          merge: true
+      })
+      .then(function () {
+          console.log("bookmark has been saved for: " + currentUser);
+          var iconID = 'save-' + rideID;
+          console.log(iconID);
+          document.getElementById(iconID).innerText = 'bookmark';
+      });
+}
 
 function listenNewChanges() {
   db.collection("chats").doc(chatid).collection("messages")
