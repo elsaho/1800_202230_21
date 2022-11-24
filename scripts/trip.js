@@ -1,6 +1,5 @@
 var role = localStorage.getItem('role');
 var currentUser;
-var rideID;
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
@@ -29,6 +28,7 @@ firebase.auth().onAuthStateChanged(user => {
 function populateRidesInfo() {
   let rideCardTemp = document.getElementById("rideCardTemp");
   let rideCardGroup = document.getElementById("rideCardGroup");
+  var rideID;
 
   console.log(role);
 
@@ -45,7 +45,7 @@ function populateRidesInfo() {
         var userName = doc.data().userName;
         var email = doc.data().userEmail;
         var userGender = doc.data().userGender;
-        rideID = doc.data().rideID;
+        var rideID = doc.data().rideID;
         let rideCard = rideCardTemp.content.cloneNode(true);
 
         // rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
@@ -82,7 +82,7 @@ function populateRidesInfo() {
       var userName = doc.data().userName;
       var email = doc.data().userEmail;
       var userGender = doc.data().userGender;
-      rideID = doc.data().rideID;
+      var rideID = doc.data().rideID;
       let rideCard = rideCardTemp.content.cloneNode(true);
       // rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
       rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
@@ -93,15 +93,17 @@ function populateRidesInfo() {
       rideCard.querySelector('.role').innerHTML = "I am a : Driver";
 
       console.log(rideID);
+
       //bookmark
       currentUser.get().then(userDoc => {
         var bookmarks = userDoc.data().bookmarks;
         if (bookmarks.includes(rideID)) {
           document.getElementById('save-' + rideID).innerText = 'bookmark';
         }
-})
+      })
+
       rideCard.querySelector('i').id = 'save-' + rideID;
-      rideCard.querySelector('i').onclick = () => saveBookmark(rideID);
+      rideCard.querySelector('i').onclick = () => {console.log(rideID); saveBookmark(rideID)};
 
       rideCardGroup.appendChild(rideCard);
     })
