@@ -15,16 +15,6 @@ firebase.auth().onAuthStateChanged(user => {
   }
 });
 
-// function insertName() {
-//   currentUser.get().then(userDoc => {
-//     //get the user name
-//     var user_Name = userDoc.data().name;
-//     console.log(user_Name);
-
-//     $("#name-goes-here").text(user_Name); //jquery
-//   })
-// }
-
 function populateRidesInfo() {
   let rideCardTemp = document.getElementById("rideCardTemp");
   let rideCardGroup = document.getElementById("rideCardGroup");
@@ -64,7 +54,7 @@ function populateRidesInfo() {
           }
 })
         rideCard.querySelector('i').id = 'save-' + rideID;
-        rideCard.querySelector('i').onclick = () => saveBookmark(rideID);
+        rideCard.querySelector('i').onclick = () => updateBookmark(rideID);
 
         rideCardGroup.appendChild(rideCard);
       })
@@ -103,26 +93,50 @@ function populateRidesInfo() {
       })
 
       rideCard.querySelector('i').id = 'save-' + rideID;
-      rideCard.querySelector('i').onclick = () => {console.log(rideID); saveBookmark(rideID)};
+      rideCard.querySelector('i').onclick = () => {console.log(rideID); updateBookmark(rideID)};
 
       rideCardGroup.appendChild(rideCard);
     })
   })
 }}
 
-function saveBookmark(rideID) {
-  currentUser.set({
-          bookmarks: firebase.firestore.FieldValue.arrayUnion(rideID)
-      }, {
-          merge: true
-      })
-      .then(function () {
-          console.log("bookmark has been saved for: " + currentUser);
-          var iconID = 'save-' + rideID;
+function updateBookmark(id) {
+  currentUser.get().then((userDoc) => {
+    bookmarksNow = userDoc.data().bookmarks;
+    // console.log(bookmarksNow)
+
+    if (bookmarksNow.includes(id)) {
+      console.log(id);
+      currentUser
+        .update({
+          bookmarks: firebase.firestore.FieldValue.arrayRemove(id),
+        })
+        .then(function () {
+          console.log("This bookmark is removed for" + currentUser);
+          var iconID = "save-" + id;
           console.log(iconID);
-          document.getElementById(iconID).innerText = 'bookmark';
-      });
+          document.getElementById(iconID).innerText = "bookmark_border";
+        });
+    } else {
+      currentUser
+        .set(
+          {
+            bookmarks: firebase.firestore.FieldValue.arrayUnion(id),
+          },
+          {
+            merge: true,
+          }
+        )
+        .then(function () {
+          console.log("This bookmark is for" + currentUser);
+          var iconID = "save-" + id;
+          console.log(iconID);
+          document.getElementById(iconID).innerText = "bookmark";
+        });
+    }
+  });
 }
+
 
 function listenNewChanges() {
   db.collection("chats").doc(chatid).collection("messages")
