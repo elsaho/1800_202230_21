@@ -1,6 +1,7 @@
 var role = localStorage.getItem('role');
 var currentUser;
 
+
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     currentUser = db.collection("users").doc(user.uid); //global
@@ -35,7 +36,7 @@ function populateRidesInfo() {
         var userName = doc.data().userName;
         var email = doc.data().userEmail;
         var userGender = doc.data().userGender;
-        var rideID = doc.data().rideID;
+        rideID = doc.data().rideID;
         let rideCard = rideCardTemp.content.cloneNode(true);
 
         // rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
@@ -53,7 +54,7 @@ function populateRidesInfo() {
             document.getElementById('save-' + rideID).innerText = 'bookmark';
           }
 })
-        rideCard.querySelector('i').id = 'save-' + rideID;
+        rideCard.querySelector('i').rideID = 'save-' + rideID;
         rideCard.querySelector('i').onclick = () => updateBookmark(rideID);
 
         rideCardGroup.appendChild(rideCard);
@@ -68,13 +69,11 @@ function populateRidesInfo() {
       var startLocation = doc.data().start;
       var endLocation = doc.data().end;
       var depTime = doc.data().DepartureTime;
-      // var curStatus = doc.data().Status;
       var userName = doc.data().userName;
       var email = doc.data().userEmail;
       var userGender = doc.data().userGender;
       var rideID = doc.data().rideID;
       let rideCard = rideCardTemp.content.cloneNode(true);
-      // rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
       rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
       rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
       rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
@@ -92,7 +91,7 @@ function populateRidesInfo() {
         }
       })
 
-      rideCard.querySelector('i').id = 'save-' + rideID;
+      rideCard.querySelector('i').rideID = 'save-' + rideID;
       rideCard.querySelector('i').onclick = () => {console.log(rideID); updateBookmark(rideID)};
 
       rideCardGroup.appendChild(rideCard);
@@ -100,20 +99,28 @@ function populateRidesInfo() {
   })
 }}
 
-function updateBookmark(id) {
+function updateBookmark(rideID) {
+  db.collection("rides")
+  .get()
+    .then(allRides => {
+      allRides.forEach(doc => {
+        var rideID  = doc.data().rideID;
+      })
+    })
+  
   currentUser.get().then((userDoc) => {
     bookmarksNow = userDoc.data().bookmarks;
     // console.log(bookmarksNow)
 
-    if (bookmarksNow.includes(id)) {
-      console.log(id);
+    if (bookmarksNow.includes(rideID)) {
+      console.log(rideID)
       currentUser
         .update({
-          bookmarks: firebase.firestore.FieldValue.arrayRemove(id),
+          bookmarks: firebase.firestore.FieldValue.arrayRemove(rideID),
         })
         .then(function () {
           console.log("This bookmark is removed for" + currentUser);
-          var iconID = "save-" + id;
+          var iconID = "save-" + rideID;
           console.log(iconID);
           document.getElementById(iconID).innerText = "bookmark_border";
         });
@@ -121,7 +128,7 @@ function updateBookmark(id) {
       currentUser
         .set(
           {
-            bookmarks: firebase.firestore.FieldValue.arrayUnion(id),
+            bookmarks: firebase.firestore.FieldValue.arrayUnion(rideID),
           },
           {
             merge: true,
@@ -129,7 +136,7 @@ function updateBookmark(id) {
         )
         .then(function () {
           console.log("This bookmark is for" + currentUser);
-          var iconID = "save-" + id;
+          var iconID = "save-" + rideID;
           console.log(iconID);
           document.getElementById(iconID).innerText = "bookmark";
         });
@@ -137,20 +144,4 @@ function updateBookmark(id) {
   });
 }
 
-
-function listenNewChanges() {
-  db.collection("chats").doc(chatid).collection("messages")
-      .onSnapshot(snap => {
-          snap.docChanges().forEach(change => {
-              if (change.type == "added") {
-                  console.log("new message ", change.doc.data());
-                  let msgCard = document.getElementById("card-template")
-                      .content.cloneNode(true);
-                  msgCard.querySelector('.card-body').innerHTML = change.doc.data().text;
-                  msgCard.querySelector('.card-name').innerHTML = change.doc.data().name;
-                  document.getElementById("results").appendChild(msgCard);
-              }
-          })
-      })
-}
 
