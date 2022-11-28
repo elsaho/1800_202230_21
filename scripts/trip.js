@@ -19,7 +19,6 @@ firebase.auth().onAuthStateChanged(user => {
 function populateRidesInfo() {
   let rideCardTemp = document.getElementById("rideCardTemp");
   let rideCardGroup = document.getElementById("rideCardGroup");
-  var rideID;
 
   console.log(role);
 
