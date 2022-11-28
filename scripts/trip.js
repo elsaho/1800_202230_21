@@ -6,8 +6,8 @@ firebase.auth().onAuthStateChanged(user => {
   if (user) {
     currentUser = db.collection("users").doc(user.uid); //global
     console.log(currentUser);
+
     // the following functions are always called when someone is logged in
-    insertName();
     populateRidesInfo();
   } else {
     // No user is signed in.
@@ -23,124 +23,125 @@ function populateRidesInfo() {
   console.log(role);
 
   if (role === "Driver") {
-  db.collection("rides")
-    .where("role", "==", "Passenger")
-    .get()
-    .then(allRides => {
-      allRides.forEach(doc => {
-        var startLocation = doc.data().start;
-        var endLocation = doc.data().end;
-        var depTime = doc.data().DepartureTime;
-        // var curStatus = doc.data().Status;
-        var userName = doc.data().userName;
-        var email = doc.data().userEmail;
-        var userGender = doc.data().userGender;
-        rideID = doc.data().rideID;
-        let rideCard = rideCardTemp.content.cloneNode(true);
+    db.collection("rides")
+      .where("role", "==", "Passenger")
+      .get()
+      .then(allRides => {
+        allRides.forEach(doc => {
+          var startLocation = doc.data().start;
+          var endLocation = doc.data().end;
+          var depTime = doc.data().DepartureTime;
+          var userName = doc.data().userName;
+          var email = doc.data().userEmail;
+          var userGender = doc.data().userGender;
+          var rideID = doc.data().rideID;
+          let rideCard = rideCardTemp.content.cloneNode(true);
 
-        // rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
-        rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
-        rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
-        rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
-        rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
-        rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
-        rideCard.querySelector('.role').innerHTML = "I am a : Passenger";
+          rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
+          rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
+          rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
+          rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
+          rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
+          rideCard.querySelector('.role').innerHTML = "I am a : Passenger";
 
-        //bookmark
-        currentUser.get().then(userDoc => {
-          var bookmarks = userDoc.data().bookmarks;
-          if (bookmarks.includes(rideID)) {
-            document.getElementById('save-' + rideID).innerText = 'bookmark';
-          }
-})
-        rideCard.querySelector('i').rideID = 'save-' + rideID;
-        rideCard.querySelector('i').onclick = () => updateBookmark(rideID);
+          currentUser.set({
+              bookmarks: firebase.firestore.FieldValue.arrayUnion(),
+            }, {
+              merge: true
+            })
 
-        rideCardGroup.appendChild(rideCard);
+          //bookmark
+          rideCard.querySelector('i').id = "save-" + rideID;
+          rideCard.querySelector('i').onclick = () => updateBookmark(rideID);
+
+          currentUser.get().then(userDoc => {
+            var bookmarks = userDoc.data().bookmarks;
+            if (bookmarks.includes(rideID)) {
+              document.getElementById('save-' + rideID).innerText = 'bookmark';
+            }
+          })
+
+
+          rideCardGroup.appendChild(rideCard);
+        })
       })
-    })
-} else if (role == "Passenger") {
-  db.collection("rides")
-  .where("role", "==", "Driver")
-  .get()
-  .then(allRides => {
-    allRides.forEach(doc => {
-      var startLocation = doc.data().start;
-      var endLocation = doc.data().end;
-      var depTime = doc.data().DepartureTime;
-      var userName = doc.data().userName;
-      var email = doc.data().userEmail;
-      var userGender = doc.data().userGender;
-      var rideID = doc.data().rideID;
-      let rideCard = rideCardTemp.content.cloneNode(true);
-      rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
-      rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
-      rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
-      rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
-      rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
-      rideCard.querySelector('.role').innerHTML = "I am a : Driver";
+  } else if (role == "Passenger") {
+    db.collection("rides")
+      .where("role", "==", "Driver")
+      .get()
+      .then(allRides => {
+        allRides.forEach(doc => {
+          var startLocation = doc.data().start;
+          var endLocation = doc.data().end;
+          var depTime = doc.data().DepartureTime;
+          var userName = doc.data().userName;
+          var email = doc.data().userEmail;
+          var userGender = doc.data().userGender;
+          var rideID = doc.data().rideID;
+          let rideCard = rideCardTemp.content.cloneNode(true);
+          rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
+          rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
+          rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
+          rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
+          rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
+          rideCard.querySelector('.role').innerHTML = "I am a : Driver";
 
-      console.log(rideID);
 
-      //bookmark
-      currentUser.get().then(userDoc => {
-        var bookmarks = userDoc.data().bookmarks;
-        if (bookmarks.includes(rideID)) {
-          document.getElementById('save-' + rideID).innerText = 'bookmark';
-        }
+
+          currentUser.set({
+              bookmarks: firebase.firestore.FieldValue.arrayUnion(),
+            }, {
+              merge: true
+            })
+
+          rideCard.querySelector('i').id = "save-" + rideID;
+          rideCard.querySelector('i').onclick = () => updateBookmark(rideID);
+
+          //bookmark
+          currentUser.get().then(userDoc => {
+            var bookmarks = userDoc.data().bookmarks;
+            if (bookmarks.includes(rideID)) {
+              document.getElementById('save-' + rideID).innerText = 'bookmark';
+            }
+          })
+
+          rideCardGroup.appendChild(rideCard);
+        })
       })
+  }
+}
 
-      rideCard.querySelector('i').rideID = 'save-' + rideID;
-      rideCard.querySelector('i').onclick = () => {console.log(rideID); updateBookmark(rideID)};
 
-      rideCardGroup.appendChild(rideCard);
-    })
-  })
-}}
-
-function updateBookmark(rideID) {
-  db.collection("rides")
-  .get()
-    .then(allRides => {
-      allRides.forEach(doc => {
-        var rideID  = doc.data().rideID;
-      })
-    })
-  
+function updateBookmark(id) {
   currentUser.get().then((userDoc) => {
     bookmarksNow = userDoc.data().bookmarks;
-    // console.log(bookmarksNow)
+    console.log(bookmarksNow);
 
-    if (bookmarksNow.includes(rideID)) {
-      console.log(rideID)
+    if (bookmarksNow.includes(id)) {
+      console.log(id)
       currentUser
         .update({
-          bookmarks: firebase.firestore.FieldValue.arrayRemove(rideID),
+          bookmarks: firebase.firestore.FieldValue.arrayRemove(id),
         })
         .then(function () {
-          console.log("This bookmark is removed for" + currentUser);
-          var iconID = "save-" + rideID;
+          console.log("This bookmark is removed");
+          var iconID = "save-" + id;
           console.log(iconID);
-          document.getElementById(iconID).innerText = "bookmark_border";
+          document.getElementById(iconID).innerText = 'bookmark_border';
         });
     } else {
       currentUser
-        .set(
-          {
-            bookmarks: firebase.firestore.FieldValue.arrayUnion(rideID),
-          },
-          {
-            merge: true,
-          }
-        )
+        .set({
+          bookmarks: firebase.firestore.FieldValue.arrayUnion(id),
+        }, {
+          merge: true
+        })
         .then(function () {
-          console.log("This bookmark is for" + currentUser);
-          var iconID = "save-" + rideID;
+          console.log("This bookmark is added");
+          var iconID = "save-" + id;
           console.log(iconID);
-          document.getElementById(iconID).innerText = "bookmark";
+          document.getElementById(iconID).innerText = 'bookmark';
         });
     }
   });
 }
-
-
