@@ -40,7 +40,7 @@ function getBookmarks(user) {
                         rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
                         rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
                         rideCard.querySelector('.email').innerHTML = "Contact information: " + userName + ", " + email;
-                        rideCard.querySelector('.role').innerHTML = "As a: " + rideRole;
+                        rideCard.querySelector('.role').innerHTML = userName + " is posting as a: " + rideRole;
 
                         rideCard.querySelector('i').id = "save-" + rideID;
                         rideCard.querySelector('i').onclick = () => updateBookmark(rideID);

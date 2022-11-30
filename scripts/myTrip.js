@@ -52,7 +52,7 @@ function showTripHistory(currentUser) {
             rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
             rideCard.querySelector('.email').innerHTML = "Contact information: " + userName + ", "+ email;
             // rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
-            rideCard.querySelector('.role').innerHTML = "As a: " + rideRole;
+            rideCard.querySelector('.role').innerHTML = userName + " is posting as a: " + rideRole;
             rideCardGroup.appendChild(rideCard);
           })
         })
