@@ -1,21 +1,19 @@
 /* 
 ########Colours for reference.########
 #f9e6c9 Use for button
-#e1d4eb Use this for background. 
-#b4a7d6ff
-#d7a0ea Use for heading and bolds background
-#351c75ff
+#f5e9f9 Use this for background. 
+#885fb3 Use for heading and bolds background
 #20124dff Use for text
  */
 
 /* navbars */
 #navbar-navbar{
-    background-color: rgb(136, 95, 179);
+    background-color: #885fb3;
     color: white;
 }
 
 #navbar-login{
-    background-color: #cb60c6 !important;
+    background-color: #885fb3 !important;
  }
 
 #login-nav-logo {
