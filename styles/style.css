@@ -42,6 +42,10 @@ a[type=button]{
     background-color: #f9e6c9;
 }
 
+#navbar-hamburger{
+    background-color: #f5e9f9;
+}
+
 .card *{
     justify-content: center;
     text-align: center;
