@@ -23,6 +23,7 @@ function populateRidesInfo() {
   console.log(role);
 
   if (role === "Driver") {
+    document.getElementById("tripHeader").textContent = "Available Trips Posted by Passengers";
     db.collection("rides")
       .where("role", "==", "Passenger")
       .get()
@@ -40,9 +41,9 @@ function populateRidesInfo() {
           rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
           rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
           rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
-          rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
           rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
           rideCard.querySelector('.role').innerHTML = userName + " is posting as a: Passenger";
+          rideCard.querySelector('.userContact').innerHTML = "Contact " + userName + " at: " + email + ". Or bookmark for later view!";
 
           currentUser.set({
               bookmarks: firebase.firestore.FieldValue.arrayUnion(),
@@ -66,6 +67,7 @@ function populateRidesInfo() {
         })
       })
   } else if (role == "Passenger") {
+    document.getElementById("tripHeader").textContent = "Available Trips Posted by Drivers";
     db.collection("rides")
       .where("role", "==", "Driver")
       .get()
@@ -82,10 +84,9 @@ function populateRidesInfo() {
           rideCard.querySelector('.start').innerHTML = "From: " + startLocation;
           rideCard.querySelector('.end').innerHTML = "To: " + endLocation;
           rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
-          rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
           rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
           rideCard.querySelector('.role').innerHTML = userName + " is posting as a: Driver";
-
+          rideCard.querySelector('.userContact').innerHTML = "Contact " + userName + " at: " + email + ". Or bookmark for later view!";
 
 
           currentUser.set({
