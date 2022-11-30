@@ -10,7 +10,7 @@
 
 /* navbars */
 #navbar-navbar{
-    background-color: #cb60c6;
+    background-color: rgb(136, 95, 179);
     color: white;
 }
 
@@ -44,6 +44,10 @@ a[type=button]{
     background-color: #f9e6c9;
 }
 
+.card *{
+    justify-content: center;
+    text-align: center;
+}
 .material-icons{
     cursor: pointer;
 }
