@@ -1,5 +1,5 @@
 /* 
-Colours for reference.
+########Colours for reference.########
 #f6b26b
 #d9d2e9 Use this for background. 
 #b4a7d6ff
@@ -9,7 +9,7 @@ Colours for reference.
  */
 
 body{
-    background-color: red;
+    background-color: #d9d2e9;
 }
 
 #navbar-navbar{
@@ -22,9 +22,6 @@ body{
     color: #20124dff !important;
  }
 
- .container{
-    background-color: red;
- }
 
 #login-nav-logo {
     display: block;
