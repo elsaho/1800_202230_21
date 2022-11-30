@@ -12,8 +12,7 @@ function insertName() {
                 //get the user name
                 var user_Name = userDoc.data().name;
                 console.log(user_Name);
-                $("#name-goes-here").text(user_Name); //jquery
-                // document.getElementByID("name-goes-here").innetText=user_Name;
+                document.getElementById("name-goes-here").textContent = user_Name + "'s New Trip As A " + role;
             })
         }
 
@@ -34,11 +33,7 @@ function addTripInfo() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var currentUser = db.collection("users").doc(user.uid)
-            // currentUser.get()
-            //     .then(userDoc => {
-            //         //get the data fields of the user
-            //         var userEmail = userDoc.data().email;
-            //     })
+      
             var userID = user.uid;
             //get the document for current user.
             currentUser.get()
@@ -52,7 +47,6 @@ function addTripInfo() {
                         start: startLocation,
                         end: endLocation,
                         DepartureTime: depTime,
-                        // Status: curStatus,
                         userID: userID,
                         userEmail: userEmail,
                         userName: userName,
@@ -62,14 +56,13 @@ function addTripInfo() {
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
                         console.log(rideID);
-                        window.location.href = "trip.html"; //new line added     
-
+                        window.location.href = "thanks.html"; 
                     })
 
                 })
 
         } else {
-            // No user is signed in.
+            console.log("No user signed in");
         }
     });
 

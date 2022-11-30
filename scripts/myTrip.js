@@ -52,7 +52,7 @@ function showTripHistory(currentUser) {
             rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
             rideCard.querySelector('.email').innerHTML = "Contact information: " + userName + ", "+ email;
             // rideCard.querySelector('.curStatus').innerHTML = "Status: " + curStatus;
-            rideCard.querySelector('.role').innerHTML = "As a: " + rideRole;
+            rideCard.querySelector('.role').innerHTML = userName + " is posting as a: " + rideRole;
             rideCardGroup.appendChild(rideCard);
           })
         })
@@ -62,11 +62,19 @@ function showTripHistory(currentUser) {
 
 
 function deletePost() {
-  console.log(rideID);
+  if (confirm("Delete This Post!")) {
+    console.log(rideID);
   db.collection("rides").doc(rideID).delete().then(() => {
-    console.log("Document successfully deleted!");
+    txt = "Posting has been deleted!"
+    console.log("Document successfully deleted!"); 
     window.location.reload ();
 }).catch((error) => {
     console.error("Error removing document: ", error);
-});  
+});
+
+  } else {
+txt = "You pressed Cancel"
+  }
+  
+    
 }

@@ -42,7 +42,7 @@ function populateRidesInfo() {
           rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
           rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
           rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
-          rideCard.querySelector('.role').innerHTML = "I am a : Passenger";
+          rideCard.querySelector('.role').innerHTML = userName + " is posting as a: Passenger";
 
           currentUser.set({
               bookmarks: firebase.firestore.FieldValue.arrayUnion(),
@@ -84,7 +84,7 @@ function populateRidesInfo() {
           rideCard.querySelector('.depTime').innerHTML = "Departing at: " + depTime;
           rideCard.querySelector('.userContact').innerHTML = "Contact information: " + userName + ", " + email;
           rideCard.querySelector('.userGender').innerHTML = "Gender: " + userGender;
-          rideCard.querySelector('.role').innerHTML = "I am a : Driver";
+          rideCard.querySelector('.role').innerHTML = userName + " is posting as a: Driver";
 
 
 

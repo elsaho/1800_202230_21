@@ -27,6 +27,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 
@@ -47,9 +48,11 @@
       <i class="material-icons">bookmark_border</i>
     </div>
   </template>
-  <div class="container">
-    <h1>Available Trips</h1>
-    <a id="btn " type="button" class="btn btn-info" href="main.html">+ Create New Post</a><br><br>
+  <h1 style="padding-left: 7%;">Available Trips</h1><br>
+  <p style="text-align: center;">Browse all available postings here. You can reach out via email or bookmark posts for
+    later view!</p>
+  <div class="container" style="text-align: right;">
+    <a id="btn " type="button" class="btn btn-info" href="main.html"> No match? Create Your Posting Here!</a><br><br>
     <div class="container" style="text-align: left;">
       <div id="rideCardGroup"></div>
     </div>
@@ -64,7 +67,7 @@
   <!-- Link to scripts of your own -->
   <script src="/scripts/skeleton.js"></script>
   <!-- <script src="./scripts/role.js"></script> -->
-  <script src="./scripts/main.js"></script>
+  <!-- <script src="./scripts/main.js"></script> -->
   <script src="./scripts/trip.js"></script>
 
 </body>

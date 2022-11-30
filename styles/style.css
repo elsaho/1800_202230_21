@@ -1,3 +1,27 @@
+/* 
+########Colours for reference.########
+#f6b26b
+#d9d2e9 Use this for background. 
+#b4a7d6ff
+#8e7cc3 Use for heading and bolds background
+#351c75ff
+#20124dff Use for text
+ */
+
+body{
+    background-color: #d9d2e9;
+}
+
+#navbar-navbar{
+    background-color: #8e7cc3;
+    color: #20124dff
+}
+
+#navbar-login{
+    background-color: #8e7cc3 !important;
+    color: #20124dff !important;
+ }
+
 
 #login-nav-logo {
     display: block;
