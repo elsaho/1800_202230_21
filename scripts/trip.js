@@ -48,10 +48,12 @@ function populateRidesInfo() {
         //bookmark
         currentUser.get().then(userDoc => {
           var bookmarks = userDoc.data().bookmarks;
+          //console.log(rideID);
           if (bookmarks.includes(rideID)) {
             document.getElementById('save-' + rideID).innerText = 'bookmark';
           }
 })
+        
         rideCard.querySelector('i').id = 'save-' + rideID;
         rideCard.querySelector('i').onclick = () => updateBookmark(rideID);
 
@@ -99,11 +101,34 @@ function populateRidesInfo() {
   })
 }}
 
+// function saveBookmark(rideID) {
+//   currentUser.set({
+//           bookmarks: firebase.firestore.FieldValue.arrayUnion(rideID)
+//       }, {
+//           merge: true
+//       })
+//       .then(function () {
+//           console.log("bookmark has been saved for: " + currentUser);
+//           var iconID = 'save-' + rideID;
+//           console.log(iconID);
+//           document.getElementById(iconID).innerText = 'bookmark';
+//       });
+// }
+
+//
+// db.collection("rides")
+//     .get()
+//     .then(allRides => {
+//       allRides.forEach(doc => {
+//         var rideID = doc.data().rideID;
+//       })
+//     })
+//
+
 function updateBookmark(id) {
   currentUser.get().then((userDoc) => {
     bookmarksNow = userDoc.data().bookmarks;
     // console.log(bookmarksNow)
-
     if (bookmarksNow.includes(id)) {
       console.log(id);
       currentUser
@@ -135,6 +160,8 @@ function updateBookmark(id) {
     }
   });
 }
+
+
 
 
 function listenNewChanges() {

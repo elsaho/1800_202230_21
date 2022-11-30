@@ -68,7 +68,5 @@ function deletePost() {
     window.location.reload ();
 }).catch((error) => {
     console.error("Error removing document: ", error);
-});
-
-    
+});  
 }
