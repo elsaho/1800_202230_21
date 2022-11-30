@@ -1,33 +1,47 @@
 /* 
 ########Colours for reference.########
-#f6b26b
-#d9d2e9 Use this for background. 
+#f9e6c9 Use for button
+#e1d4eb Use this for background. 
 #b4a7d6ff
-#8e7cc3 Use for heading and bolds background
+#d7a0ea Use for heading and bolds background
 #351c75ff
 #20124dff Use for text
  */
 
-body{
-    background-color: #d9d2e9;
-}
-
+/* navbars */
 #navbar-navbar{
-    background-color: #8e7cc3;
-    color: #20124dff
+    background-color: #cb60c6;
+    color: white;
 }
 
 #navbar-login{
-    background-color: #8e7cc3 !important;
-    color: #20124dff !important;
+    background-color: #cb60c6 !important;
  }
-
 
 #login-nav-logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 10%;
+}
+
+/* body page, includes background*/
+body{
+    background-color: #f5e9f9;
+    color: #20124dff;
+}
+
+/* Buttons */
+#button-roles{
+    background-color: #f9e6c9;
+}
+
+button[type=button]{
+    background-color: #f9e6c9;
+}
+
+a[type=button]{
+    background-color: #f9e6c9;
 }
 
 .material-icons{
