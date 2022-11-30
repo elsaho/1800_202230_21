@@ -62,7 +62,7 @@ function addTripInfo() {
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
                         console.log(rideID);
-                        window.location.href = "trip.html"; //new line added     
+                        window.location.href = "thanks.html"; //new line added     
 
                     })
 

@@ -62,13 +62,19 @@ function showTripHistory(currentUser) {
 
 
 function deletePost() {
-  console.log(rideID);
+  if (confirm("Delete This Post!")) {
+    console.log(rideID);
   db.collection("rides").doc(rideID).delete().then(() => {
-    console.log("Document successfully deleted!");
+    txt = "Posting has been deleted!"
+    console.log("Document successfully deleted!"); 
     window.location.reload ();
 }).catch((error) => {
     console.error("Error removing document: ", error);
 });
 
+  } else {
+txt = "You pressed Cancel"
+  }
+  
     
 }
