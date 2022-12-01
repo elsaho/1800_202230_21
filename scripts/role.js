@@ -1,5 +1,4 @@
 var currentUser //put this right after you start script tag before writing any functions.
-var role
 
 document.getElementById("driver").addEventListener("click", function(){
   localStorage.setItem('role', 'Driver');

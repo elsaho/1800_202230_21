@@ -41,7 +41,6 @@ function populateInfo() {
               $('.Other').prop('checked', true);
             }
           }
-          // document.querySelector('form-check').value = userGender;
 
         })
     } else {
@@ -75,7 +74,7 @@ function saveUserInfo() {
     })
     .then(() => {
       console.log("Document successfully updated!");
-      window.location.assign("trip.html");
+      window.location.assign("role.html");
     })
 }
 document.getElementById('personalInfoFields').disabled = true;
