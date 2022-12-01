@@ -36,6 +36,14 @@ body{
 }
 
 /* Buttons */
+#driver{
+    background-color: #f9e6c9;
+}
+
+#passenger{
+    background-color: #f9e6c9;
+}
+
 button[type=button]{
     background-color: #f9e6c9;
 }
