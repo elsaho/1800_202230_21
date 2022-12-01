@@ -6,6 +6,8 @@
 #20124dff Use for text
  */
 
+ @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
 /* navbars */
 #navbar-navbar{
     background-color: #885fb3;
@@ -27,6 +29,7 @@
 body{
     background-color: #f5e9f9;
     color: #20124dff;
+    font-family: 'Lato', sans-serif;
 }
 
 /* Buttons */
