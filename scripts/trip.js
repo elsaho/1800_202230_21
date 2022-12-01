@@ -113,6 +113,30 @@ function populateRidesInfo() {
 }
 
 
+// function saveBookmark(rideID) {
+//   currentUser.set({
+//           bookmarks: firebase.firestore.FieldValue.arrayUnion(rideID)
+//       }, {
+//           merge: true
+//       })
+//       .then(function () {
+//           console.log("bookmark has been saved for: " + currentUser);
+//           var iconID = 'save-' + rideID;
+//           console.log(iconID);
+//           document.getElementById(iconID).innerText = 'bookmark';
+//       });
+// }
+
+//
+// db.collection("rides")
+//     .get()
+//     .then(allRides => {
+//       allRides.forEach(doc => {
+//         var rideID = doc.data().rideID;
+//       })
+//     })
+//
+
 function updateBookmark(id) {
   currentUser.get().then((userDoc) => {
     bookmarksNow = userDoc.data().bookmarks;

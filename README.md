@@ -7,16 +7,17 @@
 ## General Info
 **We are making a web application to help people get to school!**
 
-* Hullo, my name is Haurence. Haurence breaks things...
-* Hi my name is Mai! Mai makes things usable!
-* Hi, my name is Elsa! Elsa makes the project actually possible!
-
+Contributors: 
+* Elsa: Project manager, she makes our app schedule work!
+* Mai: Programmer, makes our app work!
+* Haurence: Designer, makes our app #colourful#
 	
 ## Technologies
 Technologies used for this project:
 * JavaScript
 * HTML
 * Bootstrap assets
+* Firestore
 	
 ## Content
 Content of the project folder:
@@ -30,17 +31,19 @@ Content of the project folder:
 ├── nav.html                 # nav bar item
 ├── profile.html             # user profile page.
 ├── role.html                # user select roles.
+├── saved.html               # user bookmarks page.
+├── thanks.html              # user acknowledgement: create post
 ├── trip.html                # display and save trips.
 └── README.md
 
-It has the following subfolders and files:
+It has the following subfolders:
 ├── .git                     # Folder for git repo
-├── images                   # Folder for images
-├── scripts                  # Folder for scripts
-├── styles                   # Folder for styles
+├── images                   # Folder for images, logos, etc.
+├── scripts                  # Folder for JS scripts
+└── styles                   # Folder for CSS styles
 
 Firebase hosting files: 
-├── .firebaserc...
+└── .firebaserc...
 
 
 ```
