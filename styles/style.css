@@ -36,10 +36,6 @@ body{
 }
 
 /* Buttons */
-#button-roles{
-    background-color: #f9e6c9;
-}
-
 button[type=button]{
     background-color: #f9e6c9;
 }
@@ -48,9 +44,14 @@ a[type=button]{
     background-color: #f9e6c9;
 }
 
+/* role cards */
 .card *{
     justify-content: center;
     text-align: center;
+}
+
+.row{
+    padding: 3%;
 }
 
 #login-CTA{
