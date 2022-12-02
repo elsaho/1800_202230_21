@@ -5,7 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-**We are making a web application to help people get to school!**
+**We are making a web application connecting drivers and passengers together for a better commute experience!**
 
 Contributors: 
 * Elsa: Project manager, she makes our app schedule work!
@@ -16,35 +16,64 @@ Contributors:
 Technologies used for this project:
 * JavaScript
 * HTML
+* CSS
 * Bootstrap assets
 * Firestore
 	
 ## Content
 Content of the project folder:
 
-```
  Top level of project folder: 
-├── .gitignore               # Git ignore file
-├── login.html               # log in landing page
-├── main.html                # main page
-├── myTrip.html              # shows users trips history
-├── nav.html                 # nav bar item
-├── profile.html             # user profile page.
-├── role.html                # user select roles.
-├── saved.html               # user bookmarks page.
-├── thanks.html              # user acknowledgement: create post
-├── trip.html                # display and save trips.
-└── README.md
-
-It has the following subfolders:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images, logos, etc.
-├── scripts                  # Folder for JS scripts
-└── styles                   # Folder for CSS styles
-
-Firebase hosting files: 
-└── .firebaserc...
-
+│   .firebaserc
+│   .gitignore
+│   404.html
+│   firebase.json
+│   firestore.indexes.json
+│   firestore.rules
+│   index.html
+│   login.html
+│   main.html
+│   myTrip.html
+│   nav.html
+│   profile.html
+│   README.md
+│   role.html
+│   saved.html
+│   storage.rules
+│   thanks.html
+│   trip.html
+│
+├───.firebase
+│       hosting..cache
+│
+├───.vscode
+│       settings.json
+│
+├───images
+│       caricon.png
+│       changeAddress.png
+│       connectbanner.png
+│       favicon2.ico
+│       passengericon.png
+│       whitelogo.png
+│
+├───public
+├───scripts
+│       authentication.js
+│       firebaseAPI_CONNECTRIDE.js
+│       logout.js
+│       main.js
+│       myTrip.js
+│       profile.js
+│       role.js
+│       saved.js
+│       skeleton.js
+│       trip.js
+│
+├───styles
+│       style.css
+│
+└───text
 
 ```
 
